@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lentes Rotos — Lee como un extraterrestre, aprende como un humano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- CRT Scanline overlay -->
+  <div id="crt-overlay" class="crt-overlay"></div>
+
+  <!-- Cognitive Dashboard (persistent top bar) -->
+  <nav id="cognitive-dashboard" class="dashboard">
+    <div class="dashboard__logo">LENTES ROTOS</div>
+    <div class="dashboard__processes">
+      <div class="dashboard__dot" data-process="decodificacion" title="Decodificación">
+        <span class="dashboard__dot-icon">D</span>
+        <span class="dashboard__dot-label">Decodificación</span>
+      </div>
+      <div class="dashboard__dot" data-process="interpretacion" title="Interpretación">
+        <span class="dashboard__dot-icon">I</span>
+        <span class="dashboard__dot-label">Interpretación</span>
+      </div>
+      <div class="dashboard__dot" data-process="integracion" title="Integración">
+        <span class="dashboard__dot-icon">N</span>
+        <span class="dashboard__dot-label">Integración</span>
+      </div>
+      <div class="dashboard__dot" data-process="evaluacion" title="Evaluación">
+        <span class="dashboard__dot-icon">E</span>
+        <span class="dashboard__dot-label">Evaluación</span>
+      </div>
+    </div>
+    <div class="dashboard__progress">
+      <div class="dashboard__progress-bar"></div>
+      <span class="dashboard__progress-text">0 / 14</span>
+    </div>
+  </nav>
+
+  <!-- ===================== SECTION 0: PORTADA ===================== -->
+  <section id="section-landing" class="section section--landing">
+    <div class="landing__bg"></div>
+    <div class="landing__content">
+      <h1 class="landing__title" id="typed-title"></h1>
+      <p class="landing__subtitle">Lee como un extraterrestre. Aprende como un humano.</p>
+      <p class="landing__author">Sobre el cuento de Philip K. Dick</p>
+
+      <!-- Calibration exercise -->
+      <div class="calibration" id="calibration">
+        <h2 class="calibration__title">Calibración de lentes</h2>
+        <p class="calibration__intro">Antes de comenzar, leamos tres frases comunes. ¿Qué significan realmente?</p>
+        <div class="calibration__items">
+          <div class="calibration__item" data-cal="0">
+            <p class="calibration__phrase">"Me costó un ojo de la cara"</p>
+            <div class="calibration__options">
+              <button class="calibration__btn calibration__btn--literal" data-type="literal">
+                <span class="calibration__btn-icon glow-dot"></span>
+                Tuve que extraerme un ojo como pago
+              </button>
+              <button class="calibration__btn calibration__btn--figurative" data-type="figurative">
+                <span class="calibration__btn-icon glow-dot"></span>
+                Fue muy caro
+              </button>
+            </div>
+            <div class="calibration__reveal">
+              <p>El narrador del cuento <strong>siempre</strong> elegiría la opción literal.</p>
+            </div>
+          </div>
+          <div class="calibration__item" data-cal="1">
+            <p class="calibration__phrase">"Perdió la cabeza por ella"</p>
+            <div class="calibration__options">
+              <button class="calibration__btn calibration__btn--literal" data-type="literal">
+                <span class="calibration__btn-icon glow-dot"></span>
+                Su cabeza se desprendió del cuerpo
+              </button>
+              <button class="calibration__btn calibration__btn--figurative" data-type="figurative">
+                <span class="calibration__btn-icon glow-dot"></span>
+                Se enamoró perdidamente
+              </button>
+            </div>
+            <div class="calibration__reveal">
+              <p>El narrador del cuento <strong>siempre</strong> elegiría la opción literal.</p>
+            </div>
+          </div>
+          <div class="calibration__item" data-cal="2">
+            <p class="calibration__phrase">"Se le partió el corazón"</p>
+            <div class="calibration__options">
+              <button class="calibration__btn calibration__btn--literal" data-type="literal">
+                <span class="calibration__btn-icon glow-dot"></span>
+                Su corazón se fracturó físicamente
+              </button>
+              <button class="calibration__btn calibration__btn--figurative" data-type="figurative">
+                <span class="calibration__btn-icon glow-dot"></span>
+                Sintió un dolor emocional profundo
+              </button>
+            </div>
+            <div class="calibration__reveal">
+              <p>El narrador del cuento <strong>siempre</strong> elegiría la opción literal.</p>
+            </div>
+          </div>
+        </div>
+        <div class="calibration__conclusion" id="calibration-conclusion">
+          <p>En el cuento que estás a punto de leer, el narrador interpreta <strong>todas</strong> las expresiones figuradas de forma literal. Tu misión: descubrir dónde falla su comprensión lectora.</p>
+          <button class="btn btn--primary" id="btn-start">Iniciar lectura</button>
+        </div>
+      </div>
+
+      <!-- Author portrait -->
+      <div class="author-portrait">
+        <img src="./images/philip-k-dick.jpg" alt="Philip K. Dick" class="author-portrait__img" />
+        <p class="author-portrait__name">Philip K. Dick</p>
+        <p class="author-portrait__years">1928 – 1982</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 1: PRE-LECTURA ===================== -->
+  <section id="section-prelecture" class="section section--prelecture">
+    <div class="container">
+      <div class="classified">
+        <h2 class="classified__title">La comprensión lectora como proceso cognitivo</h2>
+        <p class="classified__body">Desde la perspectiva de la psicolingüística (Van Dijk, Kintsch), la lectura no es solo extraer información, sino <strong>construir significado</strong>. El protagonista de Dick falla estrepitosamente en construir el significado correcto.</p>
+
+        <div class="processes-grid">
+          <div class="process-card" data-process="decodificacion">
+            <div class="process-card__header">
+              <span class="process-card__number">01</span>
+              <span class="process-card__badge process-card__badge--success">ÉXITO</span>
+            </div>
+            <h3 class="process-card__name">Decodificación</h3>
+            <p class="process-card__desc">Reconocimiento de palabras y frases. Transformar grafemas en representaciones mentales y acceder al léxico.</p>
+            <p class="process-card__story">El narrador decodifica perfectamente. Su acceso léxico es impecable. El problema no es mecánico.</p>
+          </div>
+          <div class="process-card" data-process="interpretacion">
+            <div class="process-card__header">
+              <span class="process-card__number">02</span>
+              <span class="process-card__badge process-card__badge--failure">FRACASO CRÍTICO</span>
+            </div>
+            <h3 class="process-card__name">Interpretación</h3>
+            <p class="process-card__desc">Comprensión del significado en contexto. Las palabras dependen del contexto, la intención del autor y las convenciones del lenguaje.</p>
+            <p class="process-card__story">Es incapaz de procesar el sentido figurado. Lo reduce todo a sentido literal.</p>
+          </div>
+          <div class="process-card" data-process="integracion">
+            <div class="process-card__header">
+              <span class="process-card__number">03</span>
+              <span class="process-card__badge process-card__badge--failure">ESQUEMAS ERRÓNEOS</span>
+            </div>
+            <h3 class="process-card__name">Integración</h3>
+            <p class="process-card__desc">Relación de la nueva información con conocimientos previos. El lector activa sus "esquemas" para llenar vacíos del texto.</p>
+            <p class="process-card__story">Activa conocimientos de biología y ciencia ficción en vez de convenciones literarias.</p>
+          </div>
+          <div class="process-card" data-process="evaluacion">
+            <div class="process-card__header">
+              <span class="process-card__number">04</span>
+              <span class="process-card__badge process-card__badge--failure">CLÍMAX DEL ABSURDO</span>
+            </div>
+            <h3 class="process-card__name">Evaluación</h3>
+            <p class="process-card__desc">Análisis crítico de contenido. Juzgar la veracidad, la postura del autor y el impacto personal.</p>
+            <p class="process-card__story">Juzga al autor como cómplice extraterrestre. Entra en pánico y huye.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 2: LECTURA INTERACTIVA ===================== -->
+  <section id="section-reading" class="section section--reading">
+    <div class="container">
+      <div class="story-header">
+        <h2 class="story-header__title">Algunas peculiaridades de los ojos</h2>
+        <p class="story-header__author">Philip K. Dick</p>
+        <div class="story-header__line"></div>
+        <p class="story-header__instruction">Haz clic en las <span class="story-header__highlight">frases subrayadas</span> para activar el análisis cognitivo</p>
+      </div>
+      <div class="story" id="story-container">
+        <!-- Story blocks rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lens Panel (slide-in from right) -->
+  <div id="lens-panel" class="lens-panel">
+    <button class="lens-panel__close" id="lens-close">&times;</button>
+    <div class="lens-panel__content">
+      <!-- LITERAL MODE -->
+      <div class="lens-mode lens-mode--literal" id="lens-literal">
+        <div class="lens-mode__header">
+          <span class="lens-mode__tag">LENTE LITERAL</span>
+          <span class="lens-mode__subtitle">Lo que el narrador entiende</span>
+        </div>
+        <blockquote class="lens-mode__phrase" id="lens-phrase-literal"></blockquote>
+        <div class="lens-mode__narrator" id="lens-narrator"></div>
+        <div class="lens-mode__description" id="lens-description"></div>
+        <button class="btn btn--correct" id="btn-correct-lens">
+          Corregir lente →
+        </button>
+      </div>
+      <!-- FIGURATIVE MODE -->
+      <div class="lens-mode lens-mode--figurative" id="lens-figurative" style="display:none;">
+        <div class="lens-mode__header">
+          <span class="lens-mode__tag lens-mode__tag--figurative">LENTE FIGURADO</span>
+          <span class="lens-mode__subtitle">Lo que realmente significa</span>
+        </div>
+        <blockquote class="lens-mode__phrase" id="lens-phrase-figurative"></blockquote>
+        <div class="lens-mode__meaning" id="lens-meaning"></div>
+        <div class="lens-mode__idiom" id="lens-idiom"></div>
+        <div class="lens-mode__cognitive" id="lens-cognitive">
+          <h4 class="lens-mode__cognitive-title">Proceso cognitivo afectado</h4>
+          <div class="lens-mode__process-badge" id="lens-process-badge"></div>
+          <p class="lens-mode__failure" id="lens-failure"></p>
+          <div class="lens-mode__theory" id="lens-theory"></div>
+        </div>
+        <button class="btn btn--close-panel" id="btn-close-analysis">Continuar lectura</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SECTION 3: MAPA COGNITIVO ===================== -->
+  <section id="section-map" class="section section--map">
+    <div class="container">
+      <h2 class="section-title">Mapa cognitivo del narrador</h2>
+      <p class="section-subtitle">Todos los fragmentos organizados por proceso cognitivo</p>
+
+      <div class="cognitive-buttons" id="cognitive-grid">
+        <!-- Rendered by JS as collapsible buttons -->
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
