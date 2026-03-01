@@ -132,12 +132,6 @@ body {
   letter-spacing: 1px;
 }
 
-.dashboard__status-indicator {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .dashboard__status-dot {
   width: 14px;
   height: 14px;
@@ -165,12 +159,6 @@ body {
       0 0 44px 16px rgba(244, 67, 54, 0.5);
     opacity: 0.7;
   }
-}
-
-.dashboard__status-text {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: #888;
 }
 
 /* ==========================================
@@ -949,7 +937,6 @@ body {
   .dashboard__processes { gap: 8px; }
   .dashboard__dot-icon { width: 24px; height: 24px; font-size: 10px; }
   .dashboard__dot-label { display: none; }
-  .dashboard__status-text { font-size: 9px; }
   .processes-grid { grid-template-columns: 1fr; }
   .cognitive-buttons { gap: 10px; }
   .credits-grid { grid-template-columns: 1fr; }

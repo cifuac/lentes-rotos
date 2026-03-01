@@ -206,7 +206,6 @@ function switchToFigurative() {
       el.setAttribute('data-process-color', hs.cognitive.primary);
     }
 
-    updateProgress();
   }
 }
 
@@ -234,12 +233,6 @@ function activateDashboardDot(process) {
   if (dot) dot.classList.add('active');
 }
 
-function updateProgress() {
-  const total = Object.keys(hotspots).length;
-  const explored = state.exploredHotspots.size;
-
-  document.querySelector('.dashboard__status-text').textContent = `${explored} / ${total}`;
-}
 
 function setupDashboardVisibility() {
   const dashboard = document.getElementById('cognitive-dashboard');
@@ -397,7 +390,6 @@ function init() {
   setupPanelControls();
   setupDashboardVisibility();
   setupNavigation();
-  updateProgress();
 }
 
 document.addEventListener('DOMContentLoaded', init);
