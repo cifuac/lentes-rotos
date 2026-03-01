@@ -949,8 +949,7 @@ body {
   .dashboard__processes { gap: 8px; }
   .dashboard__dot-icon { width: 24px; height: 24px; font-size: 10px; }
   .dashboard__dot-label { display: none; }
-  .dashboard__progress { width: 60px; }
-  .dashboard__progress-text { font-size: 9px; }
+  .dashboard__status-text { font-size: 9px; }
   .processes-grid { grid-template-columns: 1fr; }
   .cognitive-buttons { gap: 10px; }
   .credits-grid { grid-template-columns: 1fr; }
