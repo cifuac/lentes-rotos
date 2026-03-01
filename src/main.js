@@ -237,10 +237,8 @@ function activateDashboardDot(process) {
 function updateProgress() {
   const total = Object.keys(hotspots).length;
   const explored = state.exploredHotspots.size;
-  const pct = (explored / total) * 100;
 
-  document.querySelector('.dashboard__progress-bar').style.width = `${pct}%`;
-  document.querySelector('.dashboard__progress-text').textContent = `${explored} / ${total}`;
+  document.querySelector('.dashboard__status-text').textContent = `${explored} / ${total}`;
 }
 
 function setupDashboardVisibility() {

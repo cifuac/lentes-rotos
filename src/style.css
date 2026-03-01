@@ -132,22 +132,42 @@ body {
   letter-spacing: 1px;
 }
 
-.dashboard__progress {
-  position: relative;
-  width: 120px; height: 6px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-  overflow: hidden;
+.dashboard__status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.dashboard__progress-bar {
-  height: 100%; width: 0%;
-  background: linear-gradient(90deg, var(--color-decodificacion), var(--color-interpretacion), var(--color-integracion), var(--color-evaluacion));
-  border-radius: 3px;
-  transition: width 0.5s ease;
+
+.dashboard__status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-decodificacion);
+  box-shadow:
+    0 0 6px 2px var(--color-decodificacion),
+    0 0 16px 6px var(--color-evaluacion),
+    0 0 30px 10px rgba(244, 67, 54, 0.3);
+  animation: pulse-glow 1.5s ease-in-out infinite;
 }
-.dashboard__progress-text {
-  position: absolute;
-  top: 12px; right: 0;
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 6px 2px var(--color-decodificacion),
+      0 0 16px 6px var(--color-evaluacion),
+      0 0 30px 10px rgba(244, 67, 54, 0.3);
+    opacity: 1;
+  }
+  50% {
+    box-shadow:
+      0 0 10px 4px var(--color-decodificacion),
+      0 0 24px 10px var(--color-evaluacion),
+      0 0 44px 16px rgba(244, 67, 54, 0.5);
+    opacity: 0.7;
+  }
+}
+
+.dashboard__status-text {
   font-family: var(--font-mono);
   font-size: 10px;
   color: #888;
